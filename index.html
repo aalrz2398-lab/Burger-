@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAM SMASH</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--main:#0A8A5F;
+--dark:#0b0b0b;
+--card:#161616;
+--white:#ffffff;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:var(--dark);
+color:white;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.75);
+backdrop-filter:blur(15px);
+z-index:999;
+}
+
+.logo{
+font-size:2rem;
+font-weight:800;
+color:var(--main);
+text-shadow:0 0 15px var(--main);
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+nav a:hover{
+color:var(--main);
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:120px 8%;
+gap:50px;
+}
+
+.hero-content{
+flex:1;
+animation:fadeUp 1s ease;
+}
+
+.hero-content h1{
+font-size:4rem;
+line-height:1.3;
+margin-bottom:15px;
+}
+
+.hero-content span{
+color:var(--main);
+}
+
+.hero-content p{
+font-size:1.2rem;
+color:#ccc;
+margin-bottom:30px;
+}
+
+.buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:15px 35px;
+border:none;
+border-radius:50px;
+font-size:16px;
+font-weight:700;
+text-decoration:none;
+transition:.4s;
+}
+
+.menu-btn{
+background:var(--main);
+color:white;
+}
+
+.call-btn{
+background:#25D366;
+color:white;
+animation:pulse 2s infinite;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+}
+
+.hero-image{
+flex:1;
+text-align:center;
+}
+
+.hero-image img{
+width:100%;
+max-width:500px;
+animation:float 4s infinite ease-in-out;
+filter:drop-shadow(0 0 30px rgba(10,138,95,.4));
+}
+
+/* TITLE */
+
+.section-title{
+text-align:center;
+font-size:3rem;
+color:var(--main);
+margin-bottom:50px;
+}
+
+/* MENU */
+
+.menu{
+padding:100px 8%;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+background:var(--card);
+border-radius:25px;
+overflow:hidden;
+transition:.4s;
+opacity:0;
+transform:translateY(50px);
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(10,138,95,.35);
+}
+
+.card img{
+width:100%;
+height:260px;
+object-fit:cover;
+transition:.5s;
+}
+
+.card:hover img{
+transform:scale(1.08);
+}
+
+.card-content{
+padding:20px;
+text-align:center;
+}
+
+.card-content h3{
+font-size:1.5rem;
+margin-bottom:5px;
+}
+
+.en-name{
+display:block;
+color:#bdbdbd;
+font-size:.9rem;
+margin-bottom:15px;
+}
+
+.price{
+background:var(--main);
+padding:10px;
+margin:8px 0;
+border-radius:12px;
+font-weight:bold;
+}
+
+/* PHONE */
+
+.phone{
+position:fixed;
+bottom:20px;
+left:20px;
+width:65px;
+height:65px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+text-decoration:none;
+color:white;
+box-shadow:0 0 20px rgba(37,211,102,.7);
+}
+
+/* FOOTER */
+
+footer{
+margin-top:80px;
+padding:40px;
+background:#080808;
+text-align:center;
+}
+
+footer h2{
+color:var(--main);
+margin-bottom:10px;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes float{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-20px);
+}
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(37,211,102,.7);}
+70%{box-shadow:0 0 0 20px rgba(37,211,102,0);}
+100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+}
+
+@media(max-width:768px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-content h1{
+font-size:2.5rem;
+}
+
+nav ul{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">LAM SMASH</div>
+
+<ul>
+<li><a href="#">الرئيسية</a></li>
+<li><a href="#menu">المنيو</a></li>
+<li><a href="#contact">اتصل بنا</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+مرحباً بكم في
+<span>LAM SMASH</span>
+</h1>
+
+<p>
+نكهة تستحق التجربة
+</p>
+
+<div class="buttons">
+
+<a href="#menu" class="btn menu-btn">
+عرض المنيو
+</a>
+
+<a href="tel:0580110139" class="btn call-btn">
+📞 اتصل الآن
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+<img src="B.jpg">
+</div>
+
+</section>
+
+<section class="menu" id="menu">
+
+<h2 class="section-title">
+قائمة الطعام
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="B1.jpg">
+<div class="card-content">
+<h3>لام سماش بيكن</h3>
+<span class="en-name">Lam Smash Bacon</span>
+<div class="price">وجبة 36 ريال</div>
+<div class="price">بدون وجبة 26 ريال</div>
+</div>
+</div>
+
+<div class="card">
+<img src="B4.jpg">
+<div class="card-content">
+<h3>لام سماش</h3>
+<span class="en-name">Lam Smash</span>
+<div class="price">وجبة 35 ريال</div>
+<div class="price">بدون وجبة 25 ريال</div>
+</div>
+</div>
+
+<div class="card">
+<img src="B3.jpg">
+<div class="card-content">
+<h3>دجاج ميبل</h3>
+<span class="en-name">Maple Chicken</span>
+<div class="price">وجبة 36 ريال</div>
+<div class="price">بدون وجبة 26 ريال</div>
+</div>
+</div>
+
+<div class="card">
+<img src="B2.jpg">
+<div class="card-content">
+<h3>دجاج كلاسيك</h3>
+<span class="en-name">Classic Chicken</span>
+<div class="price">وجبة 30 ريال</div>
+<div class="price">بدون وجبة 20 ريال</div>
+</div>
+</div>
+
+<div class="card">
+<img src="B5.jpg">
+<div class="card-content">
+<h3>ترافل فرايز</h3>
+<span class="en-name">Truffle Fries</span>
+<div class="price">21 ريال</div>
+</div>
+</div>
+
+<div class="card">
+<img src="B6.jpg">
+<div class="card-content">
+<h3>فرايز عادي</h3>
+<span class="en-name">Regular Fries</span>
+<div class="price">8 ريال</div>
+</div>
+</div>
+
+<div class="card">
+<img src="B8.jpg">
+<div class="card-content">
+<h3>صوص لام سماش</h3>
+<span class="en-name">Lam Smash Sauce</span>
+<div class="price">3 ريال</div>
+</div>
+</div>
+
+<div class="card">
+<img src="img.jpg/B7.jpg">
+<div class="card-content">
+<h3>شوكو كرمبل</h3>
+<span class="en-name">Choco Crumble</span>
+<div class="price">26 ريال</div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<a href="tel:0580110139" class="phone">☎</a>
+
+<footer id="contact">
+
+<h2>LAM SMASH</h2>
+
+<p>📞 058 011 0139</p>
+
+<p>
+جميع الحقوق محفوظة لدى لام سماش © 2026
+</p>
+
+</footer>
+
+<script>
+
+const cards=document.querySelectorAll(".card");
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+cards.forEach(card=>{
+observer.observe(card);
+});
+
+</script>
+
+</body>
+</html>
